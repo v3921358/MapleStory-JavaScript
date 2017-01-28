@@ -52,7 +52,7 @@ function action(mode, type, selection) {
 			return;
 		}
 		cm.gainItem(req, -item[selection][1]);
-		cm.gainItem(item[selection][0]);
+		cm.gainItem(item[selection][0], 1);
 		cm.sendOk("感謝您，看看有沒有拿到囉。");
 		cm.dispose();
 	}

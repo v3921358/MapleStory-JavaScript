@@ -59,7 +59,7 @@ function action(mode, type, selection) {
 			cm.dispose();
 			return;
 		}
-		cm.gainItem(Reward[selection]);
+		cm.gainItem(Reward[selection], 1);
 		cm.sendOk("感謝您，看看有沒有拿到囉。");
 		cm.dispose();
 	}
