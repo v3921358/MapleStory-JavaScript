@@ -77,7 +77,7 @@ function action(mode, type, selection) {
 	if (status <= i++) {
 		cm.dispose();
 	} else if (status === i++) {
-		cm.sendSimple("嗨，我是#p9330012#有什麼可以幫忙的？？ \r\n\r\n#b#L0#兌換35等楓葉武器。#l \r\n\r\n#L1#兌換42等楓葉武器。#l\r\n\r\n#L2#兌換64等楓葉武器。#l\r\n\r\n#L3#碎片兌換聖誕活動勳章。#l#k");
+		cm.sendSimple("嗨，我是#p9330012#有什麼可以幫忙的？？ \r\n\r\n#b#L0#兌換35等楓葉武器。#l \r\n\r\n#L1#兌換42等楓葉武器。#l\r\n\r\n#L2#兌換64等楓葉武器。#l#k");//#l\r\n\r\n#L3#碎片兌換聖誕活動勳章。
 	} else if (status === i++) {
 		var msg = "";
 		sel = selection;
@@ -133,7 +133,7 @@ function action(mode, type, selection) {
 			}
 			break;
 		case 2:
-			gain = wp3[sel];
+			gain = wp3[sel_];
 			if (otherreq) {
 				other_req = wp2[sel_];
 			}
