@@ -39,7 +39,7 @@ function start() {
 }
 
 function action(mode, type, selection) {
-	random = Math.ceil(Math.random() * weapon.length);
+	random = Math.floor(Math.random() * weapon.length);
 	if (mode == 1) {
 		status++;
 	} else {
