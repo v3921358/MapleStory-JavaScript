@@ -1,0 +1,35 @@
+var status = -1;
+
+
+function action(mode, type, selection) {
+	var c = cm.getPlayer();
+    if (mode == 1) {
+        status++;
+    } else {
+        cm.dispose();
+        return;
+    }
+    if (status == 0) {
+		if (cm.getPlayer().getCSPoints(1) >= 15000) {
+            cm.sendYesNo("您擁有"+cm.getPlayer().getCSPoints(1)+"GASH點數，看起來您的GASH點數是足夠的，更改遊戲角色名稱需要15000 GASH點數，您要更改嗎？");
+        } else {
+            cm.sendOk("抱歉由於您的GASH點數不足15000點，無法更改角色名稱。");
+            cm.dispose();
+        }
+    } else if (status == 1) {
+		cm.sendGetText("請輸入您欲更改的角色暱稱（嚴格禁止包含以下內容：空白或底線、任何符號、不雅文字、注音文、任何誤導性字眼、與任何管理員相似之暱稱、與他人重複之暱稱)如有發現違規事宜，GM將不進行通知直接隨機改名，且不退回GASH點數以示懲戒。）");
+	}else if (status == 2){
+		newusername = cm.getText();
+	if(newusername.indexOf('GM')!= -1 ||newusername.indexOf('gm')!= -1 || newusername.indexOf('Gm')!= -1 ||newusername.indexOf('gM')!= -1 ||newusername.indexOf('幹')!= -1 || newusername.indexOf('肏')!= -1 || newusername.indexOf('fuck')!= -1 || newusername.indexOf('shit')!= -1 || newusername.indexOf('bitch')!= -1 || newusername.indexOf('雞掰')!= -1 || newusername.indexOf(' ')!= -1){
+		cm.sendSimple("您輸入的新名稱包含非法字元，請重新輸入。");
+		cm.dispose();
+	}else if(newusername == ""){
+		cm.sendSimple("您輸入的新名稱包含非法字元，請重新輸入。");
+		cm.dispose();
+	}else{
+		cm.getPlayer().modifyCSPoints(1, -15000, true);
+		c.setName(newusername);
+		c.fakeRelog();
+	}
+	}
+}
